@@ -114,12 +114,6 @@ function Dashboard() {
             >
               Proyeksi 7 Hari
             </button>
-            <button
-              onClick={() => setPredictRange(14)}
-              className={`px-4 py-2 rounded-lg text-sm transition-all ${predictRange === 14 ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" : "text-slate-500 hover:text-slate-300"}`}
-            >
-              Proyeksi 14 Hari
-            </button>
           </div>
         </div>
 
