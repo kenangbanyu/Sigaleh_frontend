@@ -35,19 +35,24 @@ function Dashboard() {
 
   const metrics = safeData?.evaluation || { mae: 0, rmse: 0, mape: 0, da: 0 };
   const lastPrice = historical30Days.length > 0 ? historical30Days[historical30Days.length - 1].harga_actual : 0;
-
-  // Mock Data untuk Top Gainers & Losers (Nantinya bisa diganti data dari API Vercel)
-  const topGainersData = [
-    { komoditas: "Cabai Merah", harga: 55000, perubahan: 12.5 },
-    { komoditas: "Bawang Merah", harga: 42000, perubahan: 8.2 },
-    { komoditas: "Daging Ayam", harga: 38000, perubahan: 4.1 },
-  ];
-  
-  const topLosersData = [
-    { komoditas: "Beras Medium I", harga: 14500, perubahan: -5.2 },
-    { komoditas: "Minyak Goreng", harga: 15500, perubahan: -3.8 },
-    { komoditas: "Gula Pasir", harga: 17000, perubahan: -1.5 },
-  ];
+  const allCommodities = safeData?.all_commodities || [];
+  const sortedCommodities =
+    [...allCommodities].sort(
+      (a, b) =>
+        b.perubahan_pct - a.perubahan_pct
+    );
+  const topGainersData =
+    sortedCommodities
+      .filter((item) => item.perubahan_pct > 0)
+      .slice(0, 3);
+  const topLosersData =
+    [...sortedCommodities]
+      .filter((item) => item.perubahan_pct < 0)
+      .sort(
+        (a, b) =>
+          a.perubahan_pct - b.perubahan_pct
+      )
+      .slice(0, 3);
 
   return (
     <div className="flex bg-slate-950 text-white min-h-screen font-sans selection:bg-emerald-500/30">

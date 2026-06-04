@@ -26,7 +26,7 @@ export default function MarketMoversCard({ type, data, weatherInsight }) {
               <p className="text-sm text-slate-400">Rp {item.harga.toLocaleString('id-ID')}</p>
             </div>
             <div className={`font-bold ${colorClass} bg-slate-900 px-3 py-1 rounded-lg`}>
-              {isIncrease ? "+" : ""}{item.perubahan}%
+              {isIncrease ? "+" : ""}{item.perubahan_pct}%
             </div>
           </div>
         ))}
