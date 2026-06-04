@@ -24,6 +24,8 @@ export default function ResidualChart({ data }) {
             <Tooltip 
               cursor={{ fill: '#1e293b', opacity: 0.4 }}
               contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '8px' }}
+              labelStyle={{ color: '#f8fafc' }}
+              itemStyle={{ color: '#f8fafc' }}
               formatter={(value) => [`Rp ${value.toLocaleString('id-ID')}`, "Selisih"]}
             />
             <ReferenceLine y={0} stroke="#94a3b8" />
