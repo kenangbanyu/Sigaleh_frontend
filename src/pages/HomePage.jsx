@@ -56,7 +56,7 @@ function HomePage() {
 
       <p className="mt-4 text-slate-300 leading-relaxed">
         Menggunakan model LSTM untuk memprediksi
-        harga pangan 7–30 hari ke depan.
+        harga pangan 7 hari ke depan.
       </p>
     </div>
 
